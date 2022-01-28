@@ -11,16 +11,6 @@ restaraunts = ['Zippys BBQ ', 'Mad Max Hotdogs ', 'Greenthumb Winery ', 'Chronic
 transporation = ['Train', 'Roadtrip', 'flying']
 entertainment = ['Gaming Convention ', 'Magic Show ', 'Museum ', 'Concert ']
 
-# print(random.choice(destinations))
-# print(random.choice(restaraunts))
-# print(random.choice(transporation))
-# print(random.choice(entertainment))
-
-# def random_daytrip_generator(city, dining, how_to_travel, what_to_do):
-#     day_trip_generated = city + dining + how_to_travel + what_to_do
-#     print(day_trip_generated)
-
-# random_daytrip_generator(random.choice(destinations), random.choice(restaraunts), random.choice(transporation), random.choice(entertainment))
 
 def random_destination(city):
     city_selected = (random.choice(city))                   #chooses random city stores in a return
@@ -34,12 +24,6 @@ def random_transport(how_youre_traveling):
 
 def random_entertainment(what_to_do):
     return(random.choice(entertainment))
-
-# loading bar function declaration
-#   create beginning of loading bar
-#   loop
-#       print + time.sleep
-#   end of loading bar
 
 clear()
 proceed_destination = False
@@ -86,12 +70,33 @@ print()
 print()
 
 trip_complete = True
-trip_answer = input('Is day trip complete? ').upper() == 'YES'
+trip_answer = input('Is day trip okay? ').upper() == 'YES'
 clear()
-if trip_answer is False:
-    print('Enjoy your trip!')
-else:
+while trip_answer is False:
+    print('Do you want to change the city?')
+    new_city = random_destination(destinations)
+    if input('Yes or No').upper() == 'YES':
+        print(new_city)
+    else:
+        print(city_selected)
+    print('Do you want to change the restaraunt?')
+    if input('Yes or No').upper() == 'YES':
+        new_restaraunt = random_restaraunt(restaraunts) 
+        print(new_restaraunt)
+    print('Do you wish to change the method of transportation?')
+    if input('Yes or No').upper() == 'YES':
+        new_trans = random_transport(transporation) 
+        print(new_trans)
+    print('Do you wish to change the entertainment?')
+    if input('Yes or No').upper() == 'YES':
+        new_entertainment = random_entertainment(entertainment) 
+        print(new_entertainment)
+        print(f'Your new trip is set to {city_selected} by {transport_selected}, also taste the food at {restaraunt_selected}, and enjoy the {entertainment_selected}: ')
+    if input('Do you want to confirm this new daytrip?').upper() == 'YES':
+        trip_answer = True
+    if trip_answer is True:
         print(f'Enjoy your trip to {city_selected} by {transport_selected}, also taste the food at {restaraunt_selected}, and enjoy the {entertainment_selected}: ')
+    
 
 
 
