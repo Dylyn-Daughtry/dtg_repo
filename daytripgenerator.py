@@ -77,8 +77,6 @@ while trip_answer is False:
     new_city = random_destination(destinations)
     if input('Yes or No').upper() == 'YES':
         print(new_city)
-    else:
-        print(city_selected)
     print('Do you want to change the restaraunt?')
     if input('Yes or No').upper() == 'YES':
         new_restaraunt = random_restaraunt(restaraunts) 
